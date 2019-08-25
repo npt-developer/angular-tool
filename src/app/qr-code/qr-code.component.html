@@ -1,0 +1,40 @@
+<form [formGroup]="formGroup">
+  <div fxLayout="row">
+    <mat-form-field fxFlex [hideRequiredMarker]="false" [floatLabel]="auto">
+      <textarea matInput type="text" placeholder="Text"
+        formControlName="data" required="false" cols="30" rows="10"></textarea>
+      <mat-hint></mat-hint>
+    </mat-form-field>
+    <div fxFlex fxLayout="column">
+      <div fxLayout="row">
+        <mat-expansion-panel fxFlex>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Options</mat-panel-title>
+          </mat-expansion-panel-header>
+          <!-- content -->
+          <div fxLayout="column">
+            <mat-form-field [hideRequiredMarker]="false" [floatLabel]="auto">
+              <input matInput type="number" min="1" placeholder="Size"
+                formControlName="size" required="false">
+            </mat-form-field>
+            <mat-form-field [hideRequiredMarker]="false" [floatLabel]="auto">
+                <input matInput type="text" placeholder="Filename"
+                  formControlName="filename" required="false">
+                  <mat-hint>Ex: {{ formGroup.controls.filename.value }}.{{ qrCodeOption.mime.substring(qrCodeOption.mime.indexOf('/') + 1, qrCodeOption.mime.length) }}</mat-hint>
+              </mat-form-field>
+          </div>
+          
+        </mat-expansion-panel>
+        <button (click)="downloadQrCode()" mat-icon-button aria-hidden="false" aria-label="Save QR Code"><mat-icon>save</mat-icon></button>
+      </div>
+      
+      <h4>Static QR Code</h4>
+      <qr-code
+            id="qrCode"
+            fxLayoutAlign="center center"
+            [value]="formGroup.controls.data.value"
+            [size]="formGroup.controls.size.value"
+            [canvas]="qrCodeOption.canvas"></qr-code>
+    </div>
+  </div>
+</form>
