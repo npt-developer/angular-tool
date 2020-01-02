@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { QrCodeComponent } from './qr-code/qr-code.component';
 
 const routes: Routes = [
 
@@ -10,24 +9,28 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
+    path: 'color',
+    loadChildren: () => import('./module/color/color.module').then(m => m.ColorModule),
+  },
+  {
     path: 'map',
-    loadChildren: './map/map.module#MapModule'
+    loadChildren: () => import('./module/map/map.module').then(m => m.MapModule),
   },
   {
     path: 'random',
-    loadChildren: './random/random.module#RandomModule'
+    loadChildren: () => import('./module/random/random.module').then(m => m.RandomModule),
   },
   {
     path: 'qr-code',
-    component: QrCodeComponent,
+    loadChildren: () => import('./module/qr-code/qr-code.module').then(m => m.QrCodeModule),
   },
   {
     path: 'viewer',
-    loadChildren: './viewer/viewer.module#ViewerModule'
+    loadChildren: () => import('./module/viewer/viewer.module').then(m => m.ViewerModule),
   },
   {
     path: 'image',
-    loadChildren: './image/image.module#ImageModule'
+    loadChildren: () => import('./module/image/image.module').then(m => m.ImageModule),
   }
 ];
 

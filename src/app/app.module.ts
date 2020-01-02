@@ -2,25 +2,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppMaterialModule } from './app-material.module';
-import { FlexLayoutModule, FlexModule } from '@angular/flex-layout';
 import { NgMaterialMultilevelMenuModule } from 'ng-material-multilevel-menu';
 
 import { HighlightModule } from 'ngx-highlightjs';
 // import xml from 'highlight.js/lib/languages/xml';
 // import scss from 'highlight.js/lib/languages/scss';
 import typescript from 'highlight.js/lib/languages/typescript';
-// qr code
-import { QRCodeModule } from 'angular2-qrcode';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CopyToClipboardService } from '@services/CopyToClipboard.service';
 
-import { MenuComponent } from './menu/menu.component';
-import { QrCodeComponent } from './qr-code/qr-code.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MenuComponent } from './component/menu/menu.component';
+import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 /**
  * Import every language you wish to highlight here
@@ -39,33 +35,27 @@ export function hljsLanguages() {
     AppComponent,
     DashboardComponent,
     MenuComponent, // menu
-    QrCodeComponent, // qr code generate
+    AdminLayoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, // routing
     BrowserAnimationsModule, // animation
-    FormsModule, // form
-    ReactiveFormsModule,
-    
-    // material
-    AppMaterialModule,
-    // flex
-    FlexLayoutModule,
+    // share
+    SharedModule,
+    CoreModule,
+
     // multilevel menu
     NgMaterialMultilevelMenuModule,
     // highlight
     HighlightModule.forRoot({
       languages: hljsLanguages
     }),
-    // qr code
-    QRCodeModule,
   ],
   exports: [
   ],
   providers: [
     {provide: Window, useValue: window }, // add window, in service: private _window: Window
-    CopyToClipboardService,
   ],
   bootstrap: [AppComponent]
 })
