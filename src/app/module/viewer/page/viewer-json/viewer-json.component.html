@@ -1,0 +1,24 @@
+<form [formGroup]="formGroup">
+    <mat-slide-toggle formControlName="expandedFlag" (change)="onExpandedSlideChange($event)">Expended</mat-slide-toggle>
+    <mat-tab-group [selectedIndex]="'1'">
+      <mat-tab label="JSON">
+        <ngx-json-view [data]="jsonData" [levelOpen]="formGroup.controls.expandedFlag.value ? 999 : 0" style="padding-top: 10px;"></ngx-json-view>
+      </mat-tab>
+      <mat-tab label="Text">
+        <div fxLayout="column">
+          <mat-form-field fxFlex [hideRequiredMarker]="false" [floatLabel]="'auto'">
+            <textarea
+                    matInput
+                    (change)="onJsonTextChange($event)"
+                    type="text"
+                    placeholder="JSON text"
+                    formControlName="jsonText"
+                    required="false"
+                    cols="30"
+                    rows="10"></textarea>
+            <mat-hint>Enter JSON text</mat-hint>
+          </mat-form-field>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </form>

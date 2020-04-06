@@ -1,0 +1,16 @@
+<h3>Color picker from Image</h3>
+<div fxLayout="column" fxLayoutGap="5px">
+  <app-input-file-image fxFlex (onImageBase64)="imageSelected($event)"></app-input-file-image>
+
+  <div fxFlex class="thumbnailParent" [ngStyle]="{backgroundColor: resultColor}">
+    <div class="result">
+      <p *ngIf="resultColor">{{ resultColor }}</p>
+    </div>
+    <div class="thumbnail">
+      <div class="preview" [ngStyle]="{backgroundColor: moveColor}">
+      </div>
+      <img #img (click)="imageClick($event)" (mousemove)="onMouseMove($event)" src="" alt="" srcset="">
+    </div>
+  </div>
+  <canvas #canvas id="canvas"></canvas>
+</div>

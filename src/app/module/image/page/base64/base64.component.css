@@ -1,0 +1,6 @@
+.imageCover {
+  /* https://alligator.io/css/cropping-images-object-fit/ */
+  object-fit: contain; 
+  width: 200px;
+  height: 200px;
+}

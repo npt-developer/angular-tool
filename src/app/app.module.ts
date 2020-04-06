@@ -41,9 +41,11 @@ export function hljsLanguages() {
     BrowserModule,
     AppRoutingModule, // routing
     BrowserAnimationsModule, // animation
+
+    CoreModule,
     // share
     SharedModule,
-    CoreModule,
+    
 
     // multilevel menu
     NgMaterialMultilevelMenuModule,
@@ -54,9 +56,7 @@ export function hljsLanguages() {
   ],
   exports: [
   ],
-  providers: [
-    {provide: Window, useValue: window }, // add window, in service: private _window: Window
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

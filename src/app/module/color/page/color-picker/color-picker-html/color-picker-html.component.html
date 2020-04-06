@@ -1,0 +1,35 @@
+<section>
+  <h3>RGB (Red, Green, Blue)</h3>
+  <div fxLayout="row">
+    <div fxFlex="40%">
+      <p><strong>Red</strong></p>
+      <p>{{ colorRange.red }}</p>
+      <p></p>
+      <div>
+        <input [(ngModel)]="colorRange.red" (input)="onColorRange()" type="range" name="rea" id="red" min="0" max="255">
+      </div>
+    </div>
+    <div fxFlex="40%">
+      <p><strong>Green</strong></p>
+      <p>{{ colorRange.green }}</p>
+      <p></p>
+      <div>
+        <input [(ngModel)]="colorRange.green" (input)="onColorRange()" type="range" name="green" id="green" min="0" max="255">
+      </div>
+    </div>
+    <div fxFlex="40%">
+      <p><strong>Red</strong></p>
+      <p>{{ colorRange.blue }}</p>
+      <p></p>
+      <div>
+        <input [(ngModel)]="colorRange.blue" (input)="onColorRange()" type="range" name="blue" id="blue" min="0" max="255">
+      </div>
+    </div>
+  </div>
+  <p>// Output</p>
+  <div id="colorRangeOutput" [style.backgroundColor]="colorRangeHex"></div>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <p>RGB: rgb({{colorRange.red}}, {{colorRange.green}}, {{colorRange.blue}})</p>
+    <p>{{ colorRangeHex }}</p>
+  </div>
+</section>

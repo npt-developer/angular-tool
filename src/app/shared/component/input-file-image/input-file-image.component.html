@@ -1,0 +1,10 @@
+<div fxLayout="column">
+  <label fxFlex>Chọn image</label>
+  <input
+    fxFlex 
+    type="file"
+    name="file"
+    (change)="onFileChange($event)"
+    placeholder="Choose image" 
+    accept="image/*" />
+</div>

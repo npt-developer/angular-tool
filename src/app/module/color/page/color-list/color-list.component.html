@@ -1,0 +1,20 @@
+<p>color-list works!22</p>
+<div>
+  <pre>
+      #1f77b4
+      #ff7f0e
+      #2ca02c
+      #d62728
+      #9467bd
+      #8c564b
+      #e377c2
+      #7f7f7f
+      #bcbd22
+      #17becf
+  </pre>
+</div>
+<div fxLayout="row">
+  <div fxFlex="10%" *ngFor="let item of list" [style.backgroundColor]="item">
+    {{ item }}
+  </div>
+</div>
